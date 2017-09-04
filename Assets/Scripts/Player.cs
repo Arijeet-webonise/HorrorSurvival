@@ -44,6 +44,16 @@ public class Player : MonoBehaviour {
 		GetComponentInChildren<Radio> ().CallHeli ();
 	}
 
+	public void PlayEffects(){
+		GetComponentInChildren<UnityStandardAssets.ImageEffects.DepthOfField> ().visualizeFocus = true;
+		Invoke ("EndEffects", 2);
+	}
+
+	void EndEffects(){
+		GetComponentInChildren<UnityStandardAssets.ImageEffects.DepthOfField> ().visualizeFocus = false;
+
+	}
+
 	void SetStamina(float newstamina){
 		staminaBar.value=newstamina;
 	}
