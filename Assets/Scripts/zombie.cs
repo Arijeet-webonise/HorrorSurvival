@@ -26,9 +26,5 @@ public class zombie : MonoBehaviour {
 			player.Play ();
 		}
 	}
-
-	// Update is called once per frame
-	void Update () {
 		
-	}
 }

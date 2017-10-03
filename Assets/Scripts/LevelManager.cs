@@ -16,6 +16,25 @@ public class LevelManager : MonoBehaviour {
 		}
 	}
 
+	void Update(){
+		DayNightCycle timeManager = FindObjectOfType<DayNightCycle> ();
+		if (timeManager.isDay ()) {
+			zombie[] zoms = FindObjectsOfType<zombie> ();
+			foreach (zombie zom in zoms) {
+				zom.gameObject.SetActive (false);
+			}
+			FindObjectOfType<Player> ().Flash (false);
+			RenderSettings.fog = false;
+		} else {
+			zombie[] zoms = FindObjectsOfType<zombie> ();
+			foreach (zombie zom in zoms) {
+				zom.gameObject.SetActive (true);
+			}
+			FindObjectOfType<Player> ().Flash (true);
+			RenderSettings.fog = true;
+		}
+	}
+
 	public void GotoLevel(int level){
 		Application.LoadLevel (level);
 	}

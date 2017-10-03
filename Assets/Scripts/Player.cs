@@ -79,6 +79,10 @@ public class Player : MonoBehaviour {
 
 	}
 
+	public void Flash(bool state){
+		transform.GetChild(0).GetChild(0).gameObject.SetActive (state);
+	}
+
 	// Update is called once per frame
 	void Update () {
 
